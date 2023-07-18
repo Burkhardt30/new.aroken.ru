@@ -1,0 +1,87 @@
+/* Nav Icon */
+.burger-btn {
+	--time: 0.1s;
+
+	--width: #{rem(40)};
+	--height: #{rem(30)};
+
+	--line-height: #{rem(4)};
+	--spacing: #{rem(6)};
+
+	--color: #000;
+	--radius: #{rem(4)};
+
+	/* Fixed height and width */
+	/* height: var(--height); */
+	/* width: var(--width); */
+
+	/* Dynamic height and width */
+	height: calc(var(--line-height) * 3 + var(--spacing) * 2);
+	width: var(--width);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	z-index: 15;
+
+	display: none;
+
+	@media (max-width: rem(1000)) {
+		display: block;
+	}
+}
+
+.burger-icon {
+	position: relative;
+	width: var(--width);
+	height: var(--line-height);
+	background-color: var(--color);
+	border-radius: var(--radius);
+}
+
+.burger-icon::before,
+.burger-icon::after {
+	content: '';
+	display: block;
+
+	position: absolute;
+	left: 0;
+
+	width: var(--width);
+	height: var(--line-height);
+
+	border-radius: var(--radius);
+	background-color: var(--color);
+	transition: transform var(--time) ease-in,
+		top var(--time) linear var(--time);
+}
+
+.burger-icon::before {
+	/* top: calc(var(--line-height) * -2); */
+	top: calc(-1 * (var(--line-height) + var(--spacing)));
+}
+
+.burger-icon::after {
+	/* top: calc(var(--line-height) * 2); */
+	top: calc(var(--line-height) + var(--spacing));
+}
+
+.burger-icon.burger-icon--active {
+	background-color: transparent;
+}
+
+.burger-icon.burger-icon--active::before,
+.burger-icon.burger-icon--active::after {
+	top: 0;
+	transition: top var(--time) linear,
+		transform var(--time) ease-in var(--time);
+}
+
+.burger-icon.burger-icon--active::before {
+	transform: rotate(45deg);
+}
+
+.burger-icon.burger-icon--active::after {
+	transform: rotate(-45deg);
+}

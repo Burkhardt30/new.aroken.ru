@@ -1,0 +1,27 @@
+.slider-section {
+	padding: rem(100);
+	font-size: rem(30);
+
+	&__slider-wrapper {
+		position: relative;
+	}
+
+	&__slider {}
+
+	&__wrapper {}
+
+	&__slide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: rem(30);
+		border: 1px solid var(--text-color);
+		padding: rem(100) rem(15);
+	}
+
+	&__pagination {}
+
+	&__prev {}
+
+	&__next {}
+}

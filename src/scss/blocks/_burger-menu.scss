@@ -1,0 +1,41 @@
+.burger-menu {
+
+	color: var(--text-color);
+	display: flex;
+	align-items: center;
+
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: rem(20) rem(20);
+		font-size: rem(28);
+
+		& .active {
+			opacity: 0.5;
+		}
+	}
+
+	@media (max-width: rem(1000)) {
+		position: fixed;
+		inset: 0;
+		z-index: 10;
+
+		justify-content: center;
+		flex-direction: column;
+
+		color: var(--white-text-color);
+		padding: rem(40) rem(15) rem(40);
+		background-color: #6a607e;
+
+		transform: translateY(-100%);
+		transition: all 0.2s ease-in;
+
+		&__list {
+			flex-direction: column;
+		}
+
+		&--open {
+			transform: translateY(0);
+		}
+	}
+}

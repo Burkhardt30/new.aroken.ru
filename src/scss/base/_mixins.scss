@@ -1,0 +1,21 @@
+@function percent($px, $from) {
+	$result: calc($px / $from) * 100%;
+	@return $result;
+}
+@function rem($px) {
+	$result: calc($px / 16) + rem;
+	@return $result;
+}
+@function em($px, $current: 16) {
+	$result: calc($px / $current) + em;
+	@return $result;
+}
+@function lh($lh, $px: 16) {
+    @return calc($lh / $px);
+}
+
+@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+	display: grid;
+	gap: $gap;
+	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+}
