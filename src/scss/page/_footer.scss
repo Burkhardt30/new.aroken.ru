@@ -1,0 +1,139 @@
+.footer {
+	color: rgba(244, 244, 244, 0.50);
+	background-color: #1A1B16;
+	@include adaptiveValue("padding-top", 66, 27);
+	@include adaptiveValue("padding-bottom", 72, 100);
+	line-height: 1.4;
+
+	&__body {
+		display: grid;
+		justify-content: space-between;
+		grid-template-columns: minmax(auto, rem(245))
+							minmax(auto, max-content)
+							minmax(auto, rem(180))
+							minmax(auto, max-content);
+		row-gap: rem(40);
+		column-gap: rem(30);
+		margin-bottom: rem(56);
+		@media (max-width: rem(991)) {
+			grid-template-columns: minmax(auto, max-content)
+								minmax(auto, rem(180))
+								minmax(auto, max-content);
+		}
+		@media (max-width: rem(768)) {
+			grid-template-columns: none;
+			row-gap: rem(20);
+		}
+	}
+	
+	&__col {
+		&:first-child {
+			@media (max-width: rem(991)) {
+				grid-column: 1/-1;
+			}
+			@media (max-width: rem(768)) {
+				order: 1;
+				grid-column: auto;
+				padding-top: rem(10);
+				display: flex;
+				align-items: center;
+				gap: rem(24);
+			}
+		}
+	}
+
+	&__logo {
+		margin-bottom: rem(29);
+		@media (max-width: rem(768)) {
+			margin-bottom: 0;
+		}
+	}
+
+	&__text {
+		max-width: rem(245);
+
+		@media (max-width: rem(991)) {
+			max-width: none;
+		}
+	}
+
+	&__title {
+		color: var(--text-light);
+		font-size: rem(20);
+		@include adaptiveValue("font-size", 20, 18);
+		font-weight: 600;
+		margin-bottom: rem(20);
+	}
+
+	&__list {
+		line-height: 1.1;
+
+		@media (max-width: rem(768)) {
+			display: flex;
+			row-gap: rem(10);
+			@include adaptiveValue("column-gap", 50, 20, 768);
+			flex-wrap: wrap;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-bottom: rem(8);
+		}
+	}
+
+	&__link {
+		transition: color var(--duration);
+
+		@media (any-hover: hover){
+			&:hover{
+				color: var(--accent);
+			}
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: end;
+		justify-content: space-between;
+		gap: rem(30);
+	}
+
+	&__copy {
+		color: var(--text-light);
+		font-size: 1rem;
+	}
+
+	&__socials {
+		display: flex;
+		align-items: center;
+		gap: rem(20);
+
+		@media (max-width: rem(500)) {
+			display: none;
+		}
+	}
+
+	&__social-item {
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--text-light);
+			border-radius: 50%;
+			width: rem(31);
+			height: rem(31);
+			transition: background var(--duration);
+
+			@media (any-hover: hover){
+				&:hover{
+					background: var(--accent);
+				}
+			}
+		}
+
+		svg {
+			max-width: 100%;
+		}
+	}
+}

@@ -1,0 +1,24 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 rem(15);
+	@include adaptiveValue("height", 68, 50);
+	color: #1A1B16;
+	font-weight: 700;
+	@include adaptiveValue("font-size", 20, 14);
+	line-height: 1.4;
+	background: var(--accent);
+	border-radius: calc(var(--border-radius) / 2);
+	transition: background var(--duration);
+
+	@media (any-hover: hover) {
+		&:hover {
+			background: #E5FFA5;
+		}
+	}
+
+	&:active {
+		background: #CAF267;
+	}
+}

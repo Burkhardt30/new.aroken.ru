@@ -1,16 +1,21 @@
+$min-width: 390;
+$max-width: 1920;
+$container-padding: 40;
+$container-width: 1180;
+$real-container-width: $container-padding + $container-width;
+
 :root {
-	--container-width: #{rem(1230)};
-	--container-padding: #{rem(15)};
+	--font: 'Museo Sans Cyrl', sans-serif;
+	--font-accent: 'Evolventa', sans-serif;
 
-	--font-main: 'Poppins', sans-serif;
-	--font-accent: 'Playfair Display', serif;
+	--bg-dark: #151612;
+	--bg-light: #F2F3F7;
+	--text-dark-1: #000;
+	--text-dark-2: #151612;
+	--text-light: #fff;
+	--accent: #D2FE67;
 
-	--page-bg: #fff;
-	--text-color: #000;
-	--white-text-color: #fff;
-	--accent: #ac182c;
+	--border-radius: #{rem(20)};
 
-    --laptop-size: #{rem(1199)};
-	--tablet-size: #{rem(959)};
-	--mobile-size: #{rem(599)};
+	--duration: .2s;
 }

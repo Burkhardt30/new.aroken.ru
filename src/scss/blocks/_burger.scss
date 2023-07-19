@@ -1,87 +1,147 @@
-/* Nav Icon */
-.burger-btn {
-	--time: 0.1s;
-
-	--width: #{rem(40)};
-	--height: #{rem(30)};
-
-	--line-height: #{rem(4)};
-	--spacing: #{rem(6)};
-
-	--color: #000;
-	--radius: #{rem(4)};
-
-	/* Fixed height and width */
-	/* height: var(--height); */
-	/* width: var(--width); */
-
-	/* Dynamic height and width */
-	height: calc(var(--line-height) * 3 + var(--spacing) * 2);
-	width: var(--width);
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	z-index: 15;
-
-	display: none;
-
-	@media (max-width: rem(1000)) {
-		display: block;
-	}
-}
-
-.burger-icon {
+.burger {
 	position: relative;
-	width: var(--width);
-	height: var(--line-height);
-	background-color: var(--color);
-	border-radius: var(--radius);
-}
 
-.burger-icon::before,
-.burger-icon::after {
-	content: '';
-	display: block;
+	&__nav {
+		@media (max-width: rem(768)) {
+			position: absolute;
+			top: 100%;
+			right: 0;
+			z-index: 10;
 
-	position: absolute;
-	left: 0;
+			color: var(--text-dark-1);
+			padding: rem(15) rem(20);
+			margin-top: rem(4);
+			background-color: #fff;
+			border: 1px solid var(--text-dark-2);
+			border-radius: calc(var(--border-radius) / 2);
+			width: max-content;
+			text-align: right;
 
-	width: var(--width);
-	height: var(--line-height);
+			transform: translateY(-20%);
+			opacity: 0;
+			visibility: hidden;
+			transition: all var(--duration);
 
-	border-radius: var(--radius);
-	background-color: var(--color);
-	transition: transform var(--time) ease-in,
-		top var(--time) linear var(--time);
-}
+			.opened-menu & {
+				transform: translateY(0);
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
 
-.burger-icon::before {
-	/* top: calc(var(--line-height) * -2); */
-	top: calc(-1 * (var(--line-height) + var(--spacing)));
-}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		row-gap: rem(10);
+		@include adaptiveValue("column-gap", 40, 15, $real-container-width, 768);
 
-.burger-icon::after {
-	/* top: calc(var(--line-height) * 2); */
-	top: calc(var(--line-height) + var(--spacing));
-}
+		a {
+			--duration: .3s;
 
-.burger-icon.burger-icon--active {
-	background-color: transparent;
-}
+			display: block;
+			padding: rem(6) 0;
+			position: relative;
 
-.burger-icon.burger-icon--active::before,
-.burger-icon.burger-icon--active::after {
-	top: 0;
-	transition: top var(--time) linear,
-		transform var(--time) ease-in var(--time);
-}
+			&::before {
+				content: '';
+				position: absolute;
+				left: 100%;
+				right: 100%;
+				bottom: 0;
+				height: 1px;
+				background: #000000b3;
+				transition: right 0s var(--duration), left var(--duration);
+			}
 
-.burger-icon.burger-icon--active::before {
-	transform: rotate(45deg);
-}
+			@media (any-hover: hover) {
+				&:hover::before {
+					left: 0;
+					right: 0;
+					transition: right var(--duration);
+				}
+			}
+		}
 
-.burger-icon.burger-icon--active::after {
-	transform: rotate(-45deg);
+		@media (max-width: rem(768)) {
+			align-items: stretch;
+			flex-direction: column;
+			row-gap: rem(8);
+		}
+	}
+
+	&__btn {
+
+		--width: #{rem(19)};
+
+		--line-height: #{rem(1)};
+		--spacing: #{rem(5)};
+
+		--color: var(--text-light);
+		--radius: #{rem(4)};
+
+		width: rem(45);
+		height: rem(45);
+		background: var(--bg-dark);
+		border-radius: 50%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		position: relative;
+		z-index: 15;
+
+		display: none;
+
+		.opened-menu & {
+			background: var(--accent);
+		}
+
+		@media (max-width: rem(768)) {
+			display: flex;
+		}
+	}
+
+	&__icon {
+		position: relative;
+		width: var(--width);
+		height: var(--line-height);
+		background-color: var(--color);
+		border-radius: var(--radius);
+		transition: background-color var(--duration);
+
+		.opened-menu & {
+			background-color: var(--text-dark-1);
+		}
+	}
+
+	&__icon::before,
+	&__icon::after {
+		content: '';
+		display: block;
+
+		position: absolute;
+		left: 0;
+
+		width: var(--width);
+		height: var(--line-height);
+
+		border-radius: var(--radius);
+		background-color: var(--color);
+		transition: background-color var(--duration);
+
+		.opened-menu & {
+			background-color: var(--text-dark-1);
+		}
+	}
+
+	&__icon::before {
+		top: calc(-1 * (var(--line-height) + var(--spacing)));
+	}
+
+	&__icon::after {
+		top: calc(var(--line-height) + var(--spacing));
+	}
 }

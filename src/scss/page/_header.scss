@@ -1,0 +1,82 @@
+.header {
+	color: var(--text-dark-1);
+	padding: rem(20) 0 rem(30);
+
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(15);
+	}
+
+	&__logo {
+		@include adaptiveValue("width", 60, 40, 768);
+		@include adaptiveValue("margin-right", 160, 15, $real-container-width, 768);
+
+		@media (max-width: rem(768)) {
+			margin-right: auto;
+		}
+	}
+
+	&__burger {
+		flex: 1 1 auto;
+		
+		@media (max-width: rem(768)) {
+			flex: 0 1 auto;
+			order: 1;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		align-items: center;
+		gap: rem(19);
+		@include adaptiveValue("margin-right", 57, 15, $real-container-width, 768);
+
+		@media (max-width: rem(768)) {
+			display: none;
+		}
+	}
+
+	&__social-item {
+
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: rem(31);
+			height: rem(31);
+		}
+
+		svg {
+			max-width: 100%;
+		}
+
+		path:first-child {
+			fill: #010102;
+			transition: fill var(--duration);
+		}
+
+		@media (any-hover: hover){
+			&:hover{
+				path:first-child {
+					fill: #494949;
+				}
+			}
+		}
+	}
+
+	&__login {
+		path {
+			transition: stroke var(--duration);
+		}
+
+		@media (any-hover: hover){
+			&:hover{
+				path {
+					stroke: #494949;
+				}
+			}
+		}
+	}
+}
