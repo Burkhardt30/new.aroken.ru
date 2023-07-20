@@ -17,6 +17,7 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 }
 
 .main {
@@ -24,7 +25,10 @@ body {
 
 	&__hero,
 	&__founder,
-	&__profession {
+	&__profession,
+	&__knowledge,
+	&__payback,
+	&__features {
 		@include adaptiveValue("margin-bottom", 130, 60);
 	}
 }

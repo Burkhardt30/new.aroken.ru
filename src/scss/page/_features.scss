@@ -1,0 +1,62 @@
+.features {
+	&__title {
+		@include adaptiveValue("margin-bottom", 63, 30);
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(20);
+		@include adaptiveValue("padding-left", 0, 30, $max-width, $real-container-width);
+		@include adaptiveValue("padding-right", 0, 30, $max-width, $real-container-width);
+
+		@media (max-width: rem(768)) {
+			display: none;
+		}
+	}
+
+	&__speech {
+		&:not(:last-child) {
+			margin-bottom: rem(43);
+		}
+
+		p {
+			max-width: rem(485);
+		}
+	}
+
+	&__slider {
+
+		color: var(--text-dark-1);
+		line-height: 1.4;
+
+		&.swiper {
+			display: none;
+			overflow: visible;
+
+			@media (max-width: rem(768)) {
+				display: block;
+			}
+		}
+	}
+
+	&__slider-slide {
+		border-radius: var(--border-radius);
+		background: var(--bg-light);
+		padding: rem(20);
+
+		p {
+			font-size: rem(16);
+		}
+
+		&.swiper-slide {
+			height: auto;
+		}
+	}
+
+	&__slider-title {
+		font-size: rem(18);
+		font-weight: 400;
+		margin-bottom: rem(10);
+	}
+}

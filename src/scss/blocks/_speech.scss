@@ -10,12 +10,29 @@
 	background: var(--bg-light);
 	position: relative;
 
+	&__title {
+		font-family: var(--font);
+		color: var(--text-dark-1);
+		@include adaptiveValue("font-size", 24, 18);
+		@include adaptiveValue("margin-bottom", 20, 10);
+		line-height: 1.4;
+		font-weight: 500;
+	}
+
 	&::before {
 		content: url("/img/decor/tail.svg");
 		position: absolute;
 		left: rem(-33);
 		bottom: 0;
 		z-index: -1;
+	}
+
+	&--right {
+		&::before {
+			transform: scaleX(-1);
+			left: auto;
+			right: rem(-33);
+		}
 	}
 
 	@media (max-width: rem(600)) {
