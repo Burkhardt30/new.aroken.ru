@@ -75,3 +75,12 @@ function mobileSliderInit(selector = '.swiper', settings = {
 		}
 	}
 }
+
+new Swiper('.cases__slider', {
+	modules: [Navigation],
+	slidesPerView: 1,
+	navigation: {
+		nextEl: '.cases__next',
+		prevEl: '.cases__prev',
+	},
+});

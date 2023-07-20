@@ -1,0 +1,44 @@
+.arrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include adaptiveValue("width", 60, 40);
+	@include adaptiveValue("height", 60, 40);
+	background: var(--bg-light);
+	border-radius: 50%;
+
+	transition: all var(--duration);
+
+	svg {
+		max-width: 24%;
+	}
+	
+	path {
+		transition: all var(--duration);
+	}
+
+	&--prev {
+		padding-right: rem(2);
+	}
+	&--next {
+		padding-left: rem(2);
+	}
+
+	@media (any-hover: hover){
+		&:hover{
+			background: #000;
+	
+			path {
+				stroke: var(--text-light);
+			}
+		}
+	}
+	
+	&:active {
+		background: #000;
+		path {
+			stroke: var(--text-light);
+		}
+	}
+}

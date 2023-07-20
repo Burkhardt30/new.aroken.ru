@@ -39,4 +39,18 @@
 	font-size: rem(20);
 	line-height: 1.4;
 	font-weight: 500;
+
+	transition: background var(--duration), color var(--duration);
+
+	@media (any-hover: hover) {
+		&:hover {
+			color: var(--text-dark-1);
+			background: var(--accent);
+		}
+	}
+
+	&:active {
+		color: var(--text-dark-1);
+		background: #CAF267;
+	}
 }

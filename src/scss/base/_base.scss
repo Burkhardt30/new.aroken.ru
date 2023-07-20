@@ -23,15 +23,11 @@ body {
 .main {
 	flex: 1 0 auto;
 
-	&__hero,
-	&__founder,
-	&__profession,
-	&__knowledge,
-	&__payback,
-	&__features,
-	&__contact,
-	&__freelance {
+	&__section {
 		@include adaptiveValue("margin-bottom", 130, 60);
+	}
+	&__cases {
+		@include adaptiveValue("margin-bottom", 145, 60);
 	}
 }
 
