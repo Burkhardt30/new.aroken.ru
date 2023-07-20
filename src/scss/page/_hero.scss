@@ -43,6 +43,7 @@
 	}
 
 	&__title {
+		font-family: var(--font-accent);
 		font-size: rem(48);
 		@include adaptiveValue("font-size", 48, 26, $real-container-width, 768);
 		line-height: 1.2;

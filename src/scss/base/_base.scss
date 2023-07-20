@@ -22,7 +22,8 @@ body {
 .main {
 	flex: 1 0 auto;
 
-	&__hero {
+	&__hero,
+	&__founder {
 		@include adaptiveValue("margin-bottom", 130, 60);
 	}
 }

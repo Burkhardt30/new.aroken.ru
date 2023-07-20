@@ -1,0 +1,33 @@
+.speech {
+	font-family: var(--font-accent);
+	color: var(--text-dark-1);
+	line-height: 1.77;
+	font-weight: 400;
+	min-height: rem(140);
+	padding: rem(20);
+	border-radius: var(--border-radius);
+	border-bottom-left-radius: rem(28);
+	background: var(--bg-light);
+	position: relative;
+
+	&::before {
+		content: url("/img/decor/tail.svg");
+		position: absolute;
+		left: rem(-33);
+		bottom: 0;
+		z-index: -1;
+	}
+
+	@media (max-width: rem(600)) {
+		&::before {
+			content: '«';
+			position: static;
+		}
+		&::after {
+			content: '»';
+		}
+		p {
+			display: inline;
+		}
+	}
+}
