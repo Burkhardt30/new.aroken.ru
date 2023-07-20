@@ -28,7 +28,9 @@ body {
 	&__profession,
 	&__knowledge,
 	&__payback,
-	&__features {
+	&__features,
+	&__contact,
+	&__freelance {
 		@include adaptiveValue("margin-bottom", 130, 60);
 	}
 }

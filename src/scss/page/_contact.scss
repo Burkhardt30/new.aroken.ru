@@ -1,0 +1,87 @@
+.contact {
+	line-height: 1.4;
+
+	&__inner {
+		@include adaptiveValue("padding-top", 40, 20);
+		@include adaptiveValue("padding-right", 82, 20);
+		@include adaptiveValue("padding-bottom", 50, 20);
+		@include adaptiveValue("padding-left", 60, 20);
+		background: linear-gradient(166deg, #D2FE67 0%, #DFFF92 100%);
+		border: 1px solid rgba(0, 0, 0, 0.30);
+		border-radius: var(--border-radius);
+	}
+
+	&__title {
+		margin-bottom: rem(20);
+	}
+
+	&__text {
+		color: #323843;
+		@include adaptiveValue("font-size", 18, 12);
+		@include adaptiveValue("margin-bottom", 66, 30);
+		max-width: rem(655);
+	}
+
+	&__form {
+		display: grid;
+		gap: rem(20);
+		grid-template-columns: repeat(3, 1fr) minmax(auto, rem(168));
+		align-items: end;
+		@include adaptiveValue("margin-bottom", 30, 20);
+
+		@media (max-width: rem(991)) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (max-width: rem(600)) {
+			grid-template-columns: none;
+		}
+	}
+
+	&__label {
+		color: #323843;
+		font-size: rem(18);
+		font-weight: 500;
+	}
+
+	&__input {
+		height: rem(50);
+		display: block;
+		border-radius: rem(6);
+		@include adaptiveValue("padding-left", 20, 10);
+		@include adaptiveValue("padding-right", 20, 10);
+		margin-top: rem(10);
+		border: 1px solid rgba(0, 0, 0, 0.30);
+		width: 100%;
+		font-size: rem(16);
+		font-weight: 300;
+
+		&::placeholder {
+			color: rgba(50, 56, 67, 0.40);
+		}
+
+		@media (max-width: rem(991)) {
+			height: rem(40);
+		}
+	}
+
+	&__button {
+		@media (max-width: rem(991)) {
+			grid-column: 1/-1;
+		}
+	}
+
+	&__form-text {
+		@include adaptiveValue("font-size", 14, 10);
+		max-width: rem(725);
+
+		a {
+			color: #4B7AD8;
+
+			@media (any-hover: hover){
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

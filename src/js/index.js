@@ -1,5 +1,3 @@
-import burgerInit from './modules/burger.js';
-
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -7,26 +5,73 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
+import burgerInit from './modules/burger.js';
+
 burgerInit();
 
-new Swiper('.features__slider', {
-	modules: [Autoplay],
-	slidesPerView: 1,
-	spaceBetween: 10,
-	loop: true,
-	autoplay: true,
-	centeredSlides: true,
-	breakpoints: {
-		500: {
-			slidesPerView: 1.5,
+mobileSliderInit('.features__slider', {
+	media: 768,
+	sliderOptions: {
+		modules: [Autoplay],
+		slidesPerView: 1,
+		spaceBetween: 10,
+		loop: true,
+		autoplay: true,
+		breakpoints: {
+			500: {
+				slidesPerView: 1.5,
+			}
 		}
 	}
-});
+})
+mobileSliderInit('.freelance__slider', {
+	media: 768,
+	sliderOptions: {
+		modules: [Autoplay],
+		autoplay: true,
+		loop: true,
+		slidesPerView: 1,
+		spaceBetween: 10,
+		breakpoints: {
+			500: {
+				slidesPerView: 1.5,
+			}
+		}
+	}
+})
 
-new Swiper('.slider-section__slider', {
-	modules: [Navigation, Pagination],
-	navigation: true,
-	pagination: true,
-	slidesPerView: 3,
-	spaceBetween: 30,
-});
+function mobileSliderInit(selector = '.swiper', settings = {
+	media: 768,
+	sliderOptions: {},
+}) {
+
+	let slider = null
+
+	const mediaQuery = settings.media
+	const options = settings.sliderOptions
+
+	window.addEventListener('load', sliderSwitch);
+	window.addEventListener('resize', sliderSwitch);
+
+	function sliderSwitch() {
+
+		const viewportWidth = document.documentElement.clientWidth
+
+		if (viewportWidth <= mediaQuery) {
+			sliderInit()
+		} else {
+			sliderDestroy()
+		}
+	}
+	function sliderInit() {
+		if (!slider) {
+			slider = new Swiper(selector, options);
+		}
+	}
+	function sliderDestroy() {
+		if (slider) {
+			slider.destroy();
+			slider = null;
+		}
+	}
+}

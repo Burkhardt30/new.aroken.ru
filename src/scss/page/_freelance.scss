@@ -1,0 +1,53 @@
+.freelance {
+
+	&__title {
+		@include adaptiveValue("margin-bottom", 49, 30);
+	}
+
+	&__slider.swiper {
+		overflow: visible;
+	}
+
+	&__slider-wrapper {
+		@media (min-width: rem(768.01)) {
+			&.swiper-wrapper {
+				flex-wrap: wrap;
+			}
+			row-gap: rem(20);
+		}
+	}
+
+	&__slide {
+		gap: rem(20) rem(60);
+		@include adaptiveValue("padding-top", 30, 20, 768);
+		@include adaptiveValue("padding-right", 30, 20, 768);
+		@include adaptiveValue("padding-bottom", 30, 20, 768);
+		@include adaptiveValue("padding-left", 60, 20, 768);
+
+		border-radius: calc(var(--border-radius) / 2);
+		border: 1px solid rgba(0, 0, 0, 0.30);
+
+		&.swiper-slide {
+			display: flex;
+		}
+
+		@media (max-width: rem(768)) {
+			flex-direction: column;
+		}
+	}
+
+	&__slide-title {
+		color: #1A1B16;
+		@include adaptiveValue("font-size", 24, 18);
+		font-weight: 500;
+		line-height: 1.3;
+		width: 100%;
+		max-width: rem(280);
+	}
+
+	&__text {
+		color: #000;
+		@include adaptiveValue("font-size", 20, 14);
+		line-height: 1.4;
+	}
+}

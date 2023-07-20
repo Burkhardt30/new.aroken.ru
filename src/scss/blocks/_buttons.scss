@@ -23,3 +23,20 @@
 		background: #CAF267;
 	}
 }
+
+.btn-mini {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	width: 100%;
+	height: rem(50);
+	background: #000;
+	border-radius: rem(6);
+	padding: 0 rem(15);
+
+	color: var(--text-light);
+	font-size: rem(20);
+	line-height: 1.4;
+	font-weight: 500;
+}
