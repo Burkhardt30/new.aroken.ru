@@ -29,9 +29,9 @@ const webp = require('gulp-webp');
 
 
 gulp.task('clean:build', function (done) {
-	if (fs.existsSync('./build/')) {
+	if (fs.existsSync('./docs/')) {
 		return gulp
-			.src('./build/', { read: false })
+			.src('./docs/', { read: false })
 			.pipe(clean({ force: true }));
 	}
 	done();
@@ -55,64 +55,68 @@ const plumberNotify = (title) => {
 gulp.task('html:build', function () {
 	return gulp
 		.src(['./src/html/**/*.html', '!./src/html/blocks/*.html'])
-		.pipe(changed('./build/'))
+		.pipe(changed('./docs/'))
 		.pipe(plumber(plumberNotify('HTML')))
 		.pipe(fileInclude(fileIncludeSetting))
 		.pipe(webpHTML())
 		.pipe(htmlclean())
-		.pipe(gulp.dest('./build/'));
+		.pipe(gulp.dest('./docs/'));
 });
 
 gulp.task('sass:build', function () {
 	return gulp
 		.src('./src/scss/*.scss')
-		.pipe(changed('./build/css/'))
+		.pipe(changed('./docs/css/'))
 		.pipe(plumber(plumberNotify('SCSS')))
-		.pipe(sourceMaps.init())
-		.pipe(autoprefixer())
+		// .pipe(sourceMaps.init())
+		.pipe(autoprefixer({
+			cascade: false,
+			grid: true,
+			overrideBrowserslist: ["last 5 versions"]
+		}))
 		.pipe(sassGlob())
-		.pipe(webpCss())
-		.pipe(groupMedia())
+		// .pipe(webpCss())
+		// .pipe(groupMedia())
 		.pipe(sass())
 		.pipe(csso())
-		.pipe(sourceMaps.write())
-		.pipe(gulp.dest('./build/css/'));
+		// .pipe(sourceMaps.write())
+		.pipe(gulp.dest('./docs/css/'));
 });
 
 gulp.task('images:build', function () {
 	return gulp
 		.src('./src/img/**/*')
-		.pipe(changed('./build/img/'))
+		.pipe(changed('./docs/img/'))
 		.pipe(webp())
-		.pipe(gulp.dest('./build/img/'))
+		.pipe(gulp.dest('./docs/img/'))
 		.pipe(gulp.src('./src/img/**/*'))
-		.pipe(changed('./build/img/'))
+		.pipe(changed('./docs/img/'))
 		.pipe(imagemin({ verbose: true }))
-		.pipe(gulp.dest('./build/img/'));
+		.pipe(gulp.dest('./docs/img/'));
 });
 
 gulp.task('fonts:build', function () {
 	return gulp
 		.src('./src/fonts/**/*')
-		.pipe(changed('./build/fonts/'))
-		.pipe(gulp.dest('./build/fonts/'));
+		.pipe(changed('./docs/fonts/'))
+		.pipe(gulp.dest('./docs/fonts/'));
 });
 
 gulp.task('files:build', function () {
 	return gulp
 		.src('./src/files/**/*')
-		.pipe(changed('./build/files/'))
-		.pipe(gulp.dest('./build/files/'));
+		.pipe(changed('./docs/files/'))
+		.pipe(gulp.dest('./docs/files/'));
 });
 
 gulp.task('js:build', function () {
 	return gulp
 		.src('./src/js/*.js')
-		.pipe(changed('./build/js/'))
+		.pipe(changed('./docs/js/'))
 		.pipe(plumber(plumberNotify('JS')))
 		.pipe(babel())
 		.pipe(webpack(require('./../webpack.config.js')))
-		.pipe(gulp.dest('./build/js/'));
+		.pipe(gulp.dest('./docs/js/'));
 });
 
 const serverOptions = {
@@ -121,5 +125,5 @@ const serverOptions = {
 };
 
 gulp.task('server:build', function () {
-	return gulp.src('./build/').pipe(server(serverOptions));
+	return gulp.src('./docs/').pipe(server(serverOptions));
 });
