@@ -20,6 +20,7 @@ showMore();
 document.addEventListener('click', smoothScrollToAnchor)
 header()
 accordionInit('.program__stages')
+accordionInit('.questions__list')
 
 // Иниты слайдеров только на мобилке ------------------------------------------------
 
