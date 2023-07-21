@@ -29,6 +29,9 @@
 			padding: 0;
 			overflow: hidden;
 		}
+		@media (max-width: rem(600)) {
+			border-radius: calc(var(--border-radius)/2);
+		}
 	}
 
 	&__slider {
@@ -46,6 +49,9 @@
 		@include adaptiveValue("padding", 30, 20);
 		@include adaptiveValue("padding-bottom", 90, 60);
 		border-radius: var(--border-radius);
+		@media (max-width: rem(600)) {
+			border-radius: calc(var(--border-radius)/2);
+		}
 	}
 
 	&__slide-title {

@@ -1,0 +1,39 @@
+.try {
+
+	&__inner {
+		border-radius: var(--border-radius);
+		border: 1px solid rgba(0, 0, 0, 0.30);
+		background: var(--bg-light) url("/img/decor/lamp.png") 100% 50% no-repeat;
+		@include adaptiveValue("padding-top", 40, 20);
+		@include adaptiveValue("padding-right", 100, 18);
+		@include adaptiveValue("padding-bottom", 40, 20);
+		@include adaptiveValue("padding-left", 100, 18);
+
+		@media (max-width: rem(991)) {
+			background-image: url("/img/decor/lamp-mobile.png");
+			background-size: auto 80%;
+			background-position: 109% -20%;
+		}
+	}
+
+	&__title {
+		@include adaptiveValue("margin-bottom", 20, 30);
+	}
+
+	&__text {
+		@include adaptiveValue("font-size", 24, 18);
+		font-weight: 500;
+		line-height: 1.4;
+		letter-spacing: rem(0.48);
+		@include adaptiveValue("margin-bottom", 36, 20);
+	}
+
+	&__btn {
+		max-width: rem(126);
+		
+		@media (max-width: rem(600)) {
+			height: rem(37);
+			max-width: none;
+		}
+	}
+}

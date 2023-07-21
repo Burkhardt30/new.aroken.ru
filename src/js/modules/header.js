@@ -16,6 +16,8 @@ export const header = () => {
     // Появление хэдера при скролле ======================================================================================================
 
     let lastPageYOffset = window.pageYOffset
+    
+    toggleHeader()
     window.addEventListener('scroll', toggleHeader)
 
     function toggleHeader() {

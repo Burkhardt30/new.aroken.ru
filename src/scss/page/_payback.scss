@@ -4,7 +4,7 @@
 	&__inner {
 		border-radius: var(--border-radius);
 		background: var(--bg-dark);
-		@include adaptiveValue("padding-top", 40, 10);
+		@include adaptiveValue("padding-top", 40, 25);
 		@include adaptiveValue("padding-right", 74, 10);
 		@include adaptiveValue("padding-bottom", 40, 20);
 		@include adaptiveValue("padding-left", 60, 10);
@@ -13,6 +13,9 @@
 	&__title {
 		color: inherit;
 		@include adaptiveValue("margin-bottom", 50, 20);
+		@media (max-width: rem(500)) {
+			padding-left: rem(10);
+		}
 	}
 
 	&__body {

@@ -9,6 +9,10 @@
 	border-bottom-left-radius: rem(28);
 	background: var(--bg-light);
 	position: relative;
+	
+	@media (max-width: rem(600)) {
+		border-radius: calc(var(--border-radius)/2);
+	}
 
 	&__title {
 		font-family: var(--font);
@@ -23,7 +27,7 @@
 		content: url("/img/decor/tail.svg");
 		position: absolute;
 		left: rem(-33);
-		bottom: 0;
+		bottom: rem(-8);
 		z-index: -1;
 	}
 

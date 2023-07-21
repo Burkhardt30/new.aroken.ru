@@ -96,6 +96,7 @@ function mobileSliderInit(selector = '.swiper', settings = {
 new Swiper('.cases__slider', {
 	modules: [Navigation],
 	slidesPerView: 1,
+	loop: true,
 	navigation: {
 		nextEl: '.cases__next',
 		prevEl: '.cases__prev',

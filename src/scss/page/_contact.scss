@@ -6,9 +6,13 @@
 		@include adaptiveValue("padding-right", 82, 20);
 		@include adaptiveValue("padding-bottom", 50, 20);
 		@include adaptiveValue("padding-left", 60, 20);
-		background: linear-gradient(166deg, #D2FE67 0%, #DFFF92 100%);
 		border: 1px solid rgba(0, 0, 0, 0.30);
 		border-radius: var(--border-radius);
+		background: var(--bg-light);
+		
+		.contact--accent & {
+			background: linear-gradient(166deg, #D2FE67 0%, #DFFF92 100%);
+		}
 	}
 
 	&__title {

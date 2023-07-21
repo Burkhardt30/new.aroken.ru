@@ -19,13 +19,22 @@
 			@@include('blocks/knowledge.html')
 			@@include('blocks/payback.html')
 			@@include('blocks/features.html')
-			@@include('blocks/contact.html')
+			@@include('blocks/contact.html', {
+				title: "Получить консультацию у специалиста",
+				btn: "Записаться",
+				mod: "contact--accent",
+			})
 			@@include('blocks/freelance.html')
 			@@include('blocks/cases.html')
 			@@include('blocks/process.html')
 			@@include('blocks/testimonials.html')
 			@@include('blocks/program.html')
 			@@include('blocks/options.html')
+			@@include('blocks/try.html')
+			@@include('blocks/contact.html', {
+				title: "Нужно больше информации?",
+				btn: "Спросить",
+			})
 			@@include('blocks/questions.html')
 		</main>
 		@@include('blocks/footer.html')
