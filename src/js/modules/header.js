@@ -5,12 +5,12 @@ export const header = () => {
     
     // Внутренний отступ мэйна, равный хэдеру ======================================================================================================
 
-    window.addEventListener('load', setPageOffset)
+    setPageOffset()
     window.addEventListener('resize', setPageOffset)
     window.addEventListener('scroll', setPageOffset)
 
     function setPageOffset() {
-        MAIN.style.paddingTop = HEADER.offsetHeight + 15 + 'px'
+        MAIN.style.paddingTop = HEADER.offsetHeight + 'px'
     }
 
     // Появление хэдера при скролле ======================================================================================================
@@ -24,6 +24,7 @@ export const header = () => {
         
         if (newPageYOffset < HEADER.offsetHeight) {
             HEADER.classList.add('header--show')
+            HEADER.classList.add('header--border-hidden')
             return false
         }
 
@@ -31,6 +32,7 @@ export const header = () => {
             HEADER.classList.add('header--show')
         } else {
             HEADER.classList.remove('header--show')
+            HEADER.classList.remove('header--border-hidden')
         }
 
         lastPageYOffset = newPageYOffset

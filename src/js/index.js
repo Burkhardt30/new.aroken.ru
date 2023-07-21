@@ -13,11 +13,13 @@ import showMore from './modules/showmore.js';
 import { Modal } from './modules/modal.js'
 import smoothScrollToAnchor from './modules/smoothScrollToAnchor.js';
 import { header } from './modules/header.js'
+import accordionInit from './modules/accordion.js'
 
 burgerInit();
 showMore();
 document.addEventListener('click', smoothScrollToAnchor)
-// header()
+header()
+accordionInit('.program__stages')
 
 // Иниты слайдеров только на мобилке ------------------------------------------------
 

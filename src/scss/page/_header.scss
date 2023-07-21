@@ -1,6 +1,29 @@
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 15;
+	background: #fff;
+    border-bottom: 1px solid #0000004d;
 	color: var(--text-dark-1);
-	padding: rem(20) 0 rem(30);
+	@include adaptiveValue("padding-top", 20, 10);
+	@include adaptiveValue("padding-bottom", 30, 20);
+
+	transform: translateY(-80%);
+	opacity: 0;
+	visibility: hidden;
+
+	transition: all var(--duration);
+	
+	&--border-hidden {
+		border-color: #00000000;
+	}
+	&--show {
+		transform: translateY(0);
+		opacity: 1;
+		visibility: visible;
+	}
 
 	&__row {
 		display: flex;
