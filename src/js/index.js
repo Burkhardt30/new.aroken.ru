@@ -10,9 +10,16 @@ import 'fslightbox/index.js';
 
 import burgerInit from './modules/burger.js';
 import showMore from './modules/showmore.js';
+import { Modal } from './modules/modal.js'
+import smoothScrollToAnchor from './modules/smoothScrollToAnchor.js';
+import { header } from './modules/header.js'
 
 burgerInit();
 showMore();
+document.addEventListener('click', smoothScrollToAnchor)
+// header()
+
+// Иниты слайдеров только на мобилке ------------------------------------------------
 
 mobileSliderInit('.features__slider', {
 	media: 768,
@@ -81,6 +88,8 @@ function mobileSliderInit(selector = '.swiper', settings = {
 	}
 }
 
+// Иниты слайдеров ----------------------------------------------------------------
+
 new Swiper('.cases__slider', {
 	modules: [Navigation],
 	slidesPerView: 1,
@@ -133,10 +142,29 @@ new Swiper('.testimonials__messages', {
 	modules: [Navigation],
 	spaceBetween: 60,
 	slidesPerView: 1,
-	autoHeight: true,
 	loop: true,
 	navigation: {
 		nextEl: '.testimonials__messages-next',
 		prevEl: '.testimonials__messages-prev',
 	},
 });
+
+// Инит модалки + функция для открытия модалки thank -------------------------------
+
+const modal = new Modal();
+
+// openTheModal('[data-target="thank"]')
+
+function openTheModal(selector) {
+	if (!modal) return
+	if (modal.isOpen) {
+		modal.close()
+		setTimeout(open, modal.speed + 100);
+	} else {
+		open()
+	}
+	function open() {
+		modal.modalContainer = document.querySelector(selector)
+		modal.open()
+	}
+}

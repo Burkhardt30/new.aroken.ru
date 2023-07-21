@@ -1,0 +1,58 @@
+<div class="modal">
+	<div class="modal__container" data-target="request">
+		<button class="modal__close" type="button"></button>
+		<div class="modal__content">
+			<section class="request-popup">
+				<div class="request-popup__offer">
+					<p class="request-popup__offer-title">
+						При полной оплате дополнительная скидка - 15%
+					</p>
+					<div class="request-popup__offer-subtitle">
+						Рассрочка:
+					</div>
+					<ul class="request-popup__offer-list">
+						<li class="request-popup__offer-item">
+							Рассрочка без %
+						</li>
+						<li class="request-popup__offer-item">
+							Первый платеж через месяц
+						</li>
+						<li class="request-popup__offer-item">
+							На срок от 0 до 36 месяцев
+						</li>
+					</ul>
+				</div>
+				<form class="request-popup__form" name="order">
+					<h2 class="request-popup__title">
+						Записаться на курс и получить бесплатную консультацию
+					</h2>
+					<input class="request-popup__input" type="text" placeholder="Имя" required>
+					<input class="request-popup__input" type="tel" placeholder="Телефон" required>
+					<input class="request-popup__input" type="email" placeholder="Почта" required>
+					<input name="option" type="hidden">
+					<button class="request-popup__btn btn-mini" type="submit">
+						Записаться
+					</button>
+					<p class="request-popup__text">
+						Нажимая кнопку «записаться» вы подтверждаете согласие на обработку персональных данных в
+						соответствии с условиями
+						<a href="#">Политики конфиденциальности</a>
+					</p>
+				</form>
+			</section>
+		</div>
+	</div>
+	<div class="modal__container" data-target="thank">
+		<div class="modal__content">
+			<section class="thank-popup">
+				<img src="/img/icons/check-big.svg" alt="">
+				<div class="thank-popup__title">
+					Ваша заявка успешно отправлена
+				</div>
+				<button class="thank-popup__btn btn-mini" type="button">
+					ОК
+				</button>
+			</section>
+		</div>
+	</div>
+</div>
