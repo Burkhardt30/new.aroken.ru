@@ -95,12 +95,22 @@
 		border-radius: rem(6);
 		border: 1px solid rgba(0, 0, 0, 0.30);
 		background: #FFF;
-		padding: rem(14) rem(20);
 		@include adaptiveValue("padding-top", 13, 8);
 		@include adaptiveValue("padding-right", 19, 9);
 		@include adaptiveValue("padding-bottom", 13, 8);
 		@include adaptiveValue("padding-left", 19, 9);
 		margin-bottom: rem(20);
+	}
+
+	&__err {
+		border-radius: rem(6);
+		border: 1px solid rgba(240, 104, 104, 0.3);
+		@include adaptiveValue("padding-top", 13, 8);
+		@include adaptiveValue("padding-right", 19, 9);
+		@include adaptiveValue("padding-bottom", 13, 8);
+		@include adaptiveValue("padding-left", 19, 9);
+		@include adaptiveValue("margin-top", 40, 0);
+		@include adaptiveValue("margin-bottom", -40, -8);
 	}
 
 	&__btn {

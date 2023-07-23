@@ -172,3 +172,5 @@ function openTheModal(selector) {
 		modal.open()
 	}
 }
+
+// Форма
