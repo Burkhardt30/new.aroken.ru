@@ -29,9 +29,9 @@ const webp = require('gulp-webp');
 
 
 gulp.task('clean:build', function (done) {
-	if (fs.existsSync('./docs/')) {
+	if (fs.existsSync('./build/')) {
 		return gulp
-			.src('./docs/', { read: false })
+			.src('./build/', { read: false })
 			.pipe(clean({ force: true }));
 	}
 	done();
@@ -55,18 +55,18 @@ const plumberNotify = (title) => {
 gulp.task('html:build', function () {
 	return gulp
 		.src(['./src/html/**/*.html', '!./src/html/blocks/*.html'])
-		.pipe(changed('./docs/'))
+		.pipe(changed('./build/'))
 		.pipe(plumber(plumberNotify('HTML')))
 		.pipe(fileInclude(fileIncludeSetting))
 		.pipe(webpHTML())
 		.pipe(htmlclean())
-		.pipe(gulp.dest('./docs/'));
+		.pipe(gulp.dest('./build/'));
 });
 
 gulp.task('sass:build', function () {
 	return gulp
 		.src('./src/scss/*.scss')
-		.pipe(changed('./docs/css/'))
+		.pipe(changed('./build/css/'))
 		.pipe(plumber(plumberNotify('SCSS')))
 		// .pipe(sourceMaps.init())
 		.pipe(autoprefixer({
@@ -80,43 +80,43 @@ gulp.task('sass:build', function () {
 		.pipe(sass())
 		.pipe(csso())
 		// .pipe(sourceMaps.write())
-		.pipe(gulp.dest('./docs/css/'));
+		.pipe(gulp.dest('./build/css/'));
 });
 
 gulp.task('images:build', function () {
 	return gulp
 		.src('./src/img/**/*')
-		.pipe(changed('./docs/img/'))
+		.pipe(changed('./build/img/'))
 		.pipe(webp())
-		.pipe(gulp.dest('./docs/img/'))
+		.pipe(gulp.dest('./build/img/'))
 		.pipe(gulp.src('./src/img/**/*'))
-		.pipe(changed('./docs/img/'))
+		.pipe(changed('./build/img/'))
 		.pipe(imagemin({ verbose: true }))
-		.pipe(gulp.dest('./docs/img/'));
+		.pipe(gulp.dest('./build/img/'));
 });
 
 gulp.task('fonts:build', function () {
 	return gulp
 		.src('./src/fonts/**/*')
-		.pipe(changed('./docs/fonts/'))
-		.pipe(gulp.dest('./docs/fonts/'));
+		.pipe(changed('./build/fonts/'))
+		.pipe(gulp.dest('./build/fonts/'));
 });
 
 gulp.task('files:build', function () {
 	return gulp
 		.src('./src/files/**/*')
-		.pipe(changed('./docs/files/'))
-		.pipe(gulp.dest('./docs/files/'));
+		.pipe(changed('./build/files/'))
+		.pipe(gulp.dest('./build/files/'));
 });
 
 gulp.task('js:build', function () {
 	return gulp
 		.src('./src/js/*.js')
-		.pipe(changed('./docs/js/'))
+		.pipe(changed('./build/js/'))
 		.pipe(plumber(plumberNotify('JS')))
 		.pipe(babel())
 		.pipe(webpack(require('./../webpack.config.js')))
-		.pipe(gulp.dest('./docs/js/'));
+		.pipe(gulp.dest('./build/js/'));
 });
 
 const serverOptions = {
@@ -125,5 +125,5 @@ const serverOptions = {
 };
 
 gulp.task('server:build', function () {
-	return gulp.src('./docs/').pipe(server(serverOptions));
+	return gulp.src('./build/').pipe(server(serverOptions));
 });
