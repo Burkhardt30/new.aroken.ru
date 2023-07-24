@@ -174,7 +174,7 @@ function openTheModal(selector) {
 	}
 }
 
-// Формы
+// Формы ---------------------------------------------------------------------------
 
 // Создание ошибки последним элементом внутри формы
 // первым аргументом может передаваться либо селектор, либо сама форма по имени
@@ -184,3 +184,18 @@ forms.createError('#contact-2', 'Это потеря потерь! :(')
 
 // Удаление ошибки по селектору
 // 	forms.removeError('.request-popup__err')
+
+// Активация загрузки кнопки формы по сабмиту
+// forms.turnIntoLoader(e) запускается по сабмиту формы
+// forms.turnIntoButton(button) принимает аргументом либо саму кнопку,
+// либо селектор кнопки, для которой надо прекратить лоадер
+
+document.querySelectorAll('form').forEach(form => {
+	form.addEventListener('submit', e => {
+		forms.turnIntoLoader(e)
+		setTimeout(() => {
+			forms.turnIntoButton(e.submitter)
+		}, 2000);
+		return false
+	})
+})
