@@ -102,20 +102,20 @@
 		margin-bottom: rem(20);
 	}
 
-	&__err {
+	&__btn {
+		@include adaptiveValue("margin-top", 60, 20);
+		@include adaptiveValue("margin-bottom", 40, 20);
+	}
+
+	.err {
 		border-radius: rem(6);
 		border: 1px solid rgba(240, 104, 104, 0.3);
 		@include adaptiveValue("padding-top", 13, 8);
 		@include adaptiveValue("padding-right", 19, 9);
 		@include adaptiveValue("padding-bottom", 13, 8);
 		@include adaptiveValue("padding-left", 19, 9);
-		@include adaptiveValue("margin-top", 40, 0);
-		@include adaptiveValue("margin-bottom", -40, -8);
-	}
-
-	&__btn {
-		@include adaptiveValue("margin-top", 60, 20);
-		@include adaptiveValue("margin-bottom", 40, 20);
+		@include adaptiveValue("margin-top", -24, 0);
+		margin-bottom: rem(24);
 	}
 
 	&__text {

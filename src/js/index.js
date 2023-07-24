@@ -14,6 +14,7 @@ import { Modal } from './modules/modal.js'
 import smoothScrollToAnchor from './modules/smoothScrollToAnchor.js';
 import { header } from './modules/header.js'
 import accordionInit from './modules/accordion.js'
+import * as forms from './modules/forms.js'
 
 burgerInit();
 showMore();
@@ -173,4 +174,13 @@ function openTheModal(selector) {
 	}
 }
 
-// Форма
+// Формы
+
+// Создание ошибки последним элементом внутри формы
+// первым аргументом может передаваться либо селектор, либо сама форма по имени
+forms.createError(document.forms.order, 'Блин блинский...')
+forms.createError('#contact-1', 'Блин, засада!')
+forms.createError('#contact-2', 'Это потеря потерь! :(')
+
+// Удаление ошибки по селектору
+// 	forms.removeError('.request-popup__err')
